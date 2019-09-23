@@ -4,7 +4,13 @@
   background-color: aliceblue;
 }
 
-.numbers-container{
+.main-container{
+  display: flex;
+  /*flex-direction: column;*/
+  align-items: flex-start;
+}
+.inner-container{
+  flex: 2;
   display: flex;
   flex-direction: column;
   align-items: flex-start;

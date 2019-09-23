@@ -5,15 +5,27 @@
     <button class="btn btn-outline-danger p-3 m-3" (click)="close()">CLOSE</button>
   </div>
   <div>
-    <div class="numbers-container p-4">
-      <div class="number"><b>Subject</b>&nbsp;all values:
-        <b>{{ subjectAllNumbers$ | async}}</b></div>
-      <div class="number"><b>BehaviorSubject</b>&nbsp;all values:
-        <b>{{ behaviorSubjectAllNumbers$ | async}}</b></div>
-      <div class="number"><b>AsyncSubject</b>&nbsp;all values:
-        <b>{{ asyncSubjectAllNumbers$ | async}}</b></div>
-      <div class="number"><b>ReplaySubject</b>&nbsp;all values:
-        <b>{{ replaySubjectAllNumbers$ | async}}</b></div>
+    <div class="main-container">
+      <div class="inner-container p-4">
+        <div class="number"><b>Subject</b>&nbsp;all values:
+          <b>{{ subjectAllNumbers$ | async}}</b></div>
+        <div class="number"><b>BehaviorSubject</b>&nbsp;all values:
+          <b>{{ behaviorSubjectAllNumbers$ | async}}</b></div>
+        <div class="number"><b>AsyncSubject</b>&nbsp;all values:
+          <b>{{ asyncSubjectAllNumbers$ | async}}</b></div>
+        <div class="number"><b>ReplaySubject</b>&nbsp;all values:
+          <b>{{ replaySubjectAllNumbers$ | async}}</b></div>
+      </div>
+      <div class="inner-container p-4">
+        <div class="number"><b>Subject new subscriber</b>&nbsp;all values:
+          <b>{{ subjectNewSubscriber$ | async}}</b></div>
+        <div class="number"><b>BehaviorSubject new subscriber</b>&nbsp;all values:
+          <b>{{ behaviorSubjectNewSubscriber$ | async}}</b></div>
+        <div class="number"><b>AsyncSubject new subscriber</b>&nbsp;all values:
+          <b>{{ asyncSubjectNewSubscriber$ | async}}</b></div>
+        <div class="number"><b>ReplaySubject new subscriber</b>&nbsp;all values:
+          <b>{{ replaySubjectNewSubscriber$ | async}}</b></div>
+      </div>
     </div>
   </div>
 </div>

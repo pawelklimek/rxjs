@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {AsyncSubject, BehaviorSubject, ReplaySubject, Subject} from 'rxjs';
+import {AsyncSubject, BehaviorSubject, Observable, ReplaySubject, Subject} from 'rxjs';
 import {scan} from 'rxjs/operators';
 
 let allNumbers = scan((acc, value) => [...acc, value], []);
@@ -21,6 +21,11 @@ export class SubjectComponent {
   asyncSubjectAllNumbers$ = this.asyncSubject$.pipe(allNumbers);
   replaySubjectAllNumbers$ = this.replaySubject$.pipe(allNumbers);
 
+  subjectNewSubscriber$ = new Observable<number[]>();
+  behaviorSubjectNewSubscriber$ = new Observable<number[]>();
+  asyncSubjectNewSubscriber$ = new Observable<number[]>();
+  replaySubjectNewSubscriber$ = new Observable<number[]>();
+
   clicked() {
     const randomNumber = this.getRandomNumber();
     this.behaviorSubject$.next(randomNumber);
@@ -37,10 +42,10 @@ export class SubjectComponent {
   }
 
   newSubscriber() {
-    this.subject$.subscribe(number => console.log('Subject number:' + number));
-    this.behaviorSubject$.subscribe(number => console.log('BehaviorSubject number:' + number));
-    this.asyncSubject$.subscribe(number => console.log('AsyncSubject number' + number));
-    this.replaySubject$.subscribe(number => console.log('ReplaySubject number' + number));
+    this.subjectNewSubscriber$ = this.subject$.pipe(allNumbers);
+    this.behaviorSubjectNewSubscriber$ = this.behaviorSubject$.pipe(allNumbers);
+    this.asyncSubjectNewSubscriber$ = this.asyncSubject$.pipe(allNumbers);
+    this.replaySubjectNewSubscriber$ = this.replaySubject$.pipe(allNumbers);
   }
 
   private getRandomNumber() {
