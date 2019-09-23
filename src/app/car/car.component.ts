@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {CarService} from './car.service';
-import {Observable} from 'rxjs';
+import {from, interval, Observable} from 'rxjs';
 import {Car} from './car';
+import {min} from 'rxjs/operators';
 
 @Component({
   selector: 'app-car',
@@ -13,38 +14,26 @@ export class CarComponent implements OnInit {
   carObservable$: Observable<Car[]>;
 
 
-  constructor(private carService: CarService) {
+  constructor() {
+  }
+
+  public numbers(): any {
+    return new Observable(observable => {
+
+      setInterval(() => {
+        observable.next(Math.random() * 1000)
+      }, 1000);
+
+      setInterval(() => {
+        observable.complete()
+      }, 3000);
+    });
   }
 
   ngOnInit() {
-    this.carObservable$ = this.carService.getCars();
 
-
-    // this.carObservable$.subscribe(
-    //   (cars) => console.log('all VW cars', cars),
-    //   (error) => console.log('no cars', error),
-    //   () => console.log('complete, no more data')
-    // );
-
-
-
-
-
-
-    let observer = {
-      next: function (value) {
-        console.log('I got car: ', value)
-      },
-      error: function (value) {
-        console.log('No cars: ', value)
-      },
-      complete: function () {
-        console.log("The factory is closed for today")
-      }
-    };
-
-    this.carObservable$.subscribe(observer);
-
+    this.numbers().pipe().subscribe(el => console.log("subscriber 1:", el));
+    this.numbers().pipe().subscribe(el => console.log("subscriber 2:", el));
 
   }
 
