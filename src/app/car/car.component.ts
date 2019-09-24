@@ -1,8 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {CarService} from './car.service';
-import {from, interval, Observable} from 'rxjs';
-import {Car} from './car';
-import {min} from 'rxjs/operators';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-car',
@@ -11,11 +8,6 @@ import {min} from 'rxjs/operators';
 })
 export class CarComponent implements OnInit {
 
-  carObservable$: Observable<Car[]>;
-
-
-  constructor() {
-  }
 
   public numbers(): any {
     return new Observable(observable => {
@@ -31,10 +23,8 @@ export class CarComponent implements OnInit {
   }
 
   ngOnInit() {
-
     this.numbers().pipe().subscribe(el => console.log("subscriber 1:", el));
     this.numbers().pipe().subscribe(el => console.log("subscriber 2:", el));
-
   }
 
 }

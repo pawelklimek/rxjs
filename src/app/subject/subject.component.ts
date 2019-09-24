@@ -26,17 +26,18 @@ export class SubjectComponent {
   asyncSubjectNewSubscriber$ = new Observable<number[]>();
   replaySubjectNewSubscriber$ = new Observable<number[]>();
 
-  clicked() {
+  generateNumber() {
     const randomNumber = this.getRandomNumber();
-    this.behaviorSubject$.next(randomNumber);
+
     this.subject$.next(randomNumber);
+    this.behaviorSubject$.next(randomNumber);
     this.asyncSubject$.next(randomNumber);
     this.replaySubject$.next(randomNumber);
   }
 
   close() {
-    this.behaviorSubject$.complete();
     this.subject$.complete();
+    this.behaviorSubject$.complete();
     this.asyncSubject$.complete();
     this.replaySubject$.complete();
   }
