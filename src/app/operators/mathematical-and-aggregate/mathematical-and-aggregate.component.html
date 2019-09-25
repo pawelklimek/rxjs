@@ -1,3 +1,27 @@
-<p>
-  mathematical-and-aggregate works!
-</p>
+<h2>
+<b>Mathematical and Aggregate Operators</b>
+</h2>
+<h2>
+<b>Current Value:</b> {{subject$ | async }}
+</h2>
+<h2>
+<b>SCAN()</b> Already Emitted Values: {{scanListEmittedValues$ | async }}
+<h5>scan((acc, value) => [...acc, value], []))</h5>
+</h2>
+<h2>
+<b>COUNT():</b> {{count$ | async }}
+</h2>
+<h2>
+<b>MAX():</b> {{max$ | async }}
+</h2>
+<h2>
+<b>MIN():</b> {{min$ | async }}
+</h2>
+<h2>
+<b>REDUCE()</b> all value as list: {{reduceList$ | async }}
+</h2>
+<h5>reduce((acc, value) => [...acc, value], []))</h5>
+<h2>
+<b>REDUCE()</b> sum all value: {{reduceSum$ | async }}
+</h2>
+<h5> reduce((acc, value) => acc + value, 0))</h5>

@@ -34,7 +34,6 @@ const operatorsRoutes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    NgModule,
     RouterModule.forChild(operatorsRoutes)
   ],
   declarations: [
