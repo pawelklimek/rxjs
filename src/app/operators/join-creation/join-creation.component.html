@@ -1,3 +1,23 @@
-<p>
-  join-creation works!
-</p>
+<h2><b>EMITTED VALUES</b></h2>
+<h2><b>current oddNumber = {{ oddNumber$ | async}} all emitted values: {{oddNumberAll$ | async}} </b></h2>
+<h2><b>current evenNumber = {{ evenNumber$ | async}} all emitted values: {{evenNumberAll$ | async}} </b></h2>
+<h2>
+  <b>combineLatest(this.oddNumber, this.evenNumber)<br>
+    .pipe(this.multiplication(), ...)</b>
+  <b></b> = {{ combineLatestMultiplication$ | async }}
+</h2>
+<h2>
+  <b>concat()</b>= {{ concat$ | async }}
+</h2>
+<h2>
+  <b>merge()</b> = {{ merge$ | async }}
+</h2>
+<h2>
+  <b>forkJoin()</b> = {{ forkJoin$ | async }}
+</h2>
+<h2>
+  <b>race()</b> = {{ race$ | async }}
+</h2>
+<h2>
+  <b>zip()</b> = {{ zip$ | async }}
+</h2>
