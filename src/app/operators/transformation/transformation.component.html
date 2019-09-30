@@ -5,34 +5,40 @@
 <h2><b>current even number = {{ evenNumber$ | async}} all emitted values: {{evenNumberAll$ | async}} </b></h2>
 
 <button class="btn btn-outline-success p-3 m-3 emit-button-tr">EMIT VALUE</button>
+<!--<h2>-->
+ <!--<b>buffer()</b>-->
+<!--</h2>-->
+<!--<h2>-->
+  <!--<b>interval(1sec).pipe(buffer(buttonEvent$)):</b> {{ buffer$ | async }}-->
+<!--</h2>-->
+<!--<h2>-->
+  <!--<b>bufferCount()</b>-->
+<!--</h2>-->
+<!--<h2>-->
+  <!--<b>interval(1sec).pipe(bufferCount(4))</b> {{ bufferCount$ | async }}-->
+<!--</h2>-->
+<!--<h2>-->
+  <!--<b>bufferTime()</b>-->
+<!--</h2>-->
+<!--<h2>-->
+  <!--<b>interval(1sec).pipe(bufferTime(3sec))</b> {{ bufferTime$ | async }}-->
+<!--</h2>-->
+<!--<h2>-->
+  <!--<b>map(odd => odd * 2)</b> = {{ map$ | async }}-->
+<!--</h2>-->
+<!--<h2>-->
+  <!--<b>mapTo("A")</b> = {{ mapTo$ | async }}-->
+<!--</h2>-->
 <h2>
- <b>buffer()</b>
+  <b>mergeMap()</b> = {{ mergeMap$ | async }}
 </h2>
-<h2>
-  <b>interval(1sec).pipe(buffer(buttonEvent$)):</b> {{ buffer$ | async }}
-</h2>
-<h2>
-  <b>bufferCount()</b>
-</h2>
-<h2>
-  <b>interval(1sec).pipe(bufferCount(4))</b> {{ bufferCount$ | async }}
-</h2>
-<h2>
-  <b>bufferTime()</b>
-</h2>
-<h2>
-  <b>interval(1sec).pipe(bufferTime(3sec))</b> {{ bufferTime$ | async }}
-</h2>
-<h2>
-  <b>map(odd => odd * 2)</b> = {{ map$ | async }}
-</h2>
-<h2>
-  <b>mapTo("A")</b> = {{ mapTo$ | async }}
-</h2>
-<h2><b>scan()</b> Already Emitted Values: {{scanListEmittedValues$ | async }}
-  <h5>scan((acc, value) => [...acc, value], []))</h5>
-</h2>
-<h2>
-  <b>pluck("number")</b> = {{ pluck$ | async }} <b>from numbers of({{"{"}}number:1{{'}'}}, {{'{'}}number: 2{{'}'}}
-  , {{'{'}}number: 3{{'}'}}) </b>
-</h2>
+<!--<h2>-->
+  <!--<b>switchMap()</b> = {{ switchMap$ | async }}-->
+<!--</h2>-->
+<!--<h2><b>scan()</b> Already Emitted Values: {{scanListEmittedValues$ | async }}-->
+  <!--<h5>scan((acc, value) => [...acc, value], []))</h5>-->
+<!--</h2>-->
+<!--<h2>-->
+  <!--<b>pluck("number")</b> = {{ pluck$ | async }} <b>from numbers of({{"{"}}number:1{{'}'}}, {{'{'}}number: 2{{'}'}}-->
+  <!--, {{'{'}}number: 3{{'}'}}) </b>-->
+<!--</h2>-->

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {OperatorsService} from '../operators.service';
 
-import {buffer, bufferCount, bufferTime, count, map, mapTo, pluck} from 'rxjs/operators';
+import {buffer, bufferCount, bufferTime, count, map, mapTo, mergeMap, pluck, switchMap} from 'rxjs/operators';
 import {fromEvent, interval, Observable, of} from 'rxjs';
 
 @Component({
@@ -22,6 +22,11 @@ export class TransformationComponent implements OnInit {
 
   map$ = this.oddNumber$.pipe(map(odd => odd * 2), OperatorsService.showAllEmittedValues());
   mapTo$ = this.oddNumber$.pipe(mapTo('A'), OperatorsService.showAllEmittedValues());
+  mergeMap$ = this.oddNumber$.pipe(
+    mergeMap(odd => this.evenNumber$.pipe( map(even => "ODD: " +  odd + " EVEN " + even))),
+    OperatorsService.showAllEmittedValues()
+  );
+  switchMap$ = this.oddNumber$.pipe(switchMap(odd => this.evenNumber$.pipe(map(even => even + odd))));
   scanListEmittedValues$ = this.oddNumber$.pipe(OperatorsService.showAllEmittedValues());
   numberWrapper = of({number: 1}, {number: 2}, {number: 3});
   pluck$ = this.numberWrapper.pipe(pluck('number'), OperatorsService.showAllEmittedValues());

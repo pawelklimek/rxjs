@@ -34,8 +34,25 @@ export class OperatorsService {
       this.closeAfter(observable, 4);
     });
   }
+  public getAlphabet(): Observable<number> {
+    return new Observable(observable => {
+      this.getValueWithDelay(observable, "A", 0);
+      this.getValueWithDelay(observable, "B", 1);
+      this.getValueWithDelay(observable, "C", 2);
+      this.getValueWithDelay(observable, "D", 3);
+      this.getValueWithDelay(observable, "E", 4);
+      this.getValueWithDelay(observable, "F", 5);
+      this.getValueWithDelay(observable, "G", 6);
+      this.getValueWithDelay(observable, "H", 7);
+      this.getValueWithDelay(observable, "I", 8);
+      this.getValueWithDelay(observable, "J", 9);
+      this.getValueWithDelay(observable, "K", 10);
+      this.closeAfter(observable, 11);
+    });
+  }
 
-  private getValueWithDelay(observable, value: number, timeInSec: number) {
+
+  private getValueWithDelay(observable, value: any, timeInSec: number) {
     setTimeout(() => {
       observable.next(value);
     }, timeInSec * 1000);
