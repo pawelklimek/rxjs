@@ -15,7 +15,7 @@ export class JoinCreationComponent {
   oddNumberAll$ = this.oddNumber$.pipe(OperatorsService.showAllEmittedValues());
   evenNumberAll$ = this.evenNumber$.pipe(OperatorsService.showAllEmittedValues());
 
-  combineLatestMultiplication$ = combineLatest(this.oddNumber$, this.evenNumber$).pipe(this.multiplication(), OperatorsService.showAllEmittedValues();
+  combineLatestMultiplication$ = combineLatest(this.oddNumber$, this.evenNumber$).pipe(this.multiplication(), OperatorsService.showAllEmittedValues());
   concat$ = concat(this.oddNumber$, this.evenNumber$).pipe(OperatorsService.showAllEmittedValues());
   merge$ = merge(this.oddNumber$, this.evenNumber$).pipe(OperatorsService.showAllEmittedValues());
   forkJoin$ = forkJoin(this.oddNumber$, this.evenNumber$).pipe(OperatorsService.showAllEmittedValues());

@@ -1,6 +1,6 @@
 <h2><b>Current emitted values: {{evenNumbers$ | async}} all emitted value {{evenNumbersAll$ | async}} </b></h2>
 <h2>
-  <b>tap()</b> = {{ tap$ | async }}
+  <b>tap(even => console.log('tap:', even * 3))</b> = {{ tap$ | async }}
 </h2>
 <h2>
   <b>delay(2000)</b> = {{ delay$ | async }}

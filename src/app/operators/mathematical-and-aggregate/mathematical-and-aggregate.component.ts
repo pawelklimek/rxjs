@@ -11,7 +11,7 @@ import {OperatorsService} from '../operators.service';
 export class MathematicalAndAggregateComponent implements OnInit {
 
   subject$ = new Subject<number>();
-  scanListEmittedValues$ = this.subject$.pipe(scan((acc, value) => [...acc, value], []));
+  scanListEmittedValues$ = this.subject$.pipe(OperatorsService.showAllEmittedValues());
   count$ = this.subject$.pipe(count());
   max$ = this.subject$.pipe(max());
   min$ = this.subject$.pipe(min());

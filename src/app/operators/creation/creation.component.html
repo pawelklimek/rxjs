@@ -1,3 +1,4 @@
+
 <h2><b>Static and not pipeline operators</b></h2>
 <h2><b>of(1, 2, 3) =</b> {{of$ | async }}</h2>
 <h2><b>range(0, 5) =</b> {{range$ | async }}</h2>
@@ -7,3 +8,10 @@
   condition: x => x < 10,
   iterate: x => x + 1
  {{'}'}} = </b> {{generate$ | async }}</h2>
+<h2><b>interval(2sec)=</b> {{interval$ | async }}</h2>
+<h2><b>timer(4sec, 2sec)=</b> {{timer$ | async }}</h2>
+
+<button class="btn btn-outline-success p-3 m-3 emit-button">EMIT VALUE</button>
+<h2><b>fromEvent(button, 'click').pipe(map(button => button.timeStamp))=</b> {{fromEvent$ | async }}</h2>
+<h2><b>throwError(new Error("Oops! ERROR!"))</b> {{throwError$ | async }}</h2>
+
