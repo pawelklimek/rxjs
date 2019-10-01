@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {interval, of, throwError, timer} from 'rxjs';
 
 @Component({
   selector: 'app-error-handling',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ErrorHandlingComponent implements OnInit {
 
-  constructor() { }
+  constructor() {}
+
+
+  streamWithError = of(interval(1000), throwError("xxx"))
+
 
   ngOnInit() {
   }

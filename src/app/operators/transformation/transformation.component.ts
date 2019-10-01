@@ -15,6 +15,8 @@ export class TransformationComponent implements OnInit {
   buffer$ = new Observable<any>();
   bufferCount$ = new Observable<any>();
   bufferTime$ = new Observable<any>();
+  switchMap$ = new Observable<any>();
+
   oddNumber$ = this.operatorsService.getOddNumbers();
   evenNumber$ = this.operatorsService.getEvenNumbers();
   oddNumberAll$ = this.oddNumber$.pipe(OperatorsService.showAllEmittedValues());
@@ -23,10 +25,9 @@ export class TransformationComponent implements OnInit {
   map$ = this.oddNumber$.pipe(map(odd => odd * 2), OperatorsService.showAllEmittedValues());
   mapTo$ = this.oddNumber$.pipe(mapTo('A'), OperatorsService.showAllEmittedValues());
   mergeMap$ = this.oddNumber$.pipe(
-    mergeMap(odd => this.evenNumber$.pipe( map(even => "ODD: " +  odd + " EVEN " + even))),
+    mergeMap(odd => this.evenNumber$.pipe(map(even => odd + even))),
     OperatorsService.showAllEmittedValues()
   );
-  switchMap$ = this.oddNumber$.pipe(switchMap(odd => this.evenNumber$.pipe(map(even => even + odd))));
   scanListEmittedValues$ = this.oddNumber$.pipe(OperatorsService.showAllEmittedValues());
   numberWrapper = of({number: 1}, {number: 2}, {number: 3});
   pluck$ = this.numberWrapper.pipe(pluck('number'), OperatorsService.showAllEmittedValues());
@@ -37,6 +38,8 @@ export class TransformationComponent implements OnInit {
   ngOnInit(): void {
     let button = document.querySelector('.emit-button-tr');
     let buttonEvent$ = fromEvent(button, 'click');
+
+    this.switchMap$ = buttonEvent$.pipe(switchMap(() => {return this.oddNumber$.pipe(OperatorsService.showAllEmittedValues())}));
     this.buffer$ = interval(1000).pipe(buffer(buttonEvent$));
     this.bufferCount$ = interval(1000).pipe(bufferCount(4));
     this.bufferTime$ = interval(1000).pipe(bufferTime(3000));

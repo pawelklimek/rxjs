@@ -26,7 +26,7 @@ export class FilteringComponent implements OnInit {
   alphabet$ = this.operatorService.getAlphabet();
   auditTime$ = this.alphabet$.pipe(auditTime(2000));
   debounce$ = this.alphabet$.pipe(debounce(() => interval(3000)));
-  debounceTime$ = this.alphabet$.pipe(debounceTime(4000));
+  debounceTime$ = this.alphabet$.pipe(debounceTime(3000));
   distinct$ = of(1, 1, 2, 2, 2, 1, 1, 2, 3, 3, 4).pipe(distinct(), OperatorsService.showAllEmittedValues());
   distinctUntilChange$ = of(1, 1, 2, 2, 2, 1, 1, 2, 3, 3, 4).pipe(distinctUntilChanged(), OperatorsService.showAllEmittedValues());
   elementAt$ = this.alphabet$.pipe(elementAt(3));
