@@ -1,4 +1,4 @@
-.button-container {
-  display: flex;
-  background-color: aliceblue;
+.btn-small{
+  padding: 0 10px !important;
+  margin: 0 0 0 15px;
 }

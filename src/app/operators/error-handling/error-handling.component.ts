@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import {interval, of, throwError, timer} from 'rxjs';
+import {Component, OnInit} from '@angular/core';
+import {of} from 'rxjs';
+import {OperatorsService} from '../operators.service';
+import {catchError, map, retry} from 'rxjs/operators';
 
 @Component({
   selector: 'app-error-handling',
@@ -8,11 +10,31 @@ import {interval, of, throwError, timer} from 'rxjs';
 })
 export class ErrorHandlingComponent implements OnInit {
 
-  constructor() {}
+  catchError$ = this.operatorsService.getAlphabet().pipe(
+    map(letter => {
+        if (letter === 'D') {
+          throw 'D';
+        }
+        return letter;
+      }
+    ),
+    catchError(() => of('Error D was there!')),
+    OperatorsService.showAllEmittedValues());
 
+  retry$ = this.operatorsService.getAlphabet().pipe(
+    map(letter => {
+        if (letter === 'D') {
+          throw 'D';
+        }
+        return letter;
+      }
+    ),
+    retry(2),
+    catchError(() => of('Error D was there!')),
+    OperatorsService.showAllEmittedValues());
 
-  streamWithError = of(interval(1000), throwError("xxx"))
-
+  constructor(private operatorsService: OperatorsService) {
+  }
 
   ngOnInit() {
   }

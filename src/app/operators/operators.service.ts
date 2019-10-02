@@ -34,7 +34,7 @@ export class OperatorsService {
       this.closeAfter(observable, 4);
     });
   }
-  public getAlphabet(): Observable<number> {
+  public getAlphabet(): Observable<string> {
     return new Observable(observable => {
       this.getValueWithDelay(observable, "A", 0);
       this.getValueWithDelay(observable, "B", 1);
