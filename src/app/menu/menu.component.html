@@ -1,6 +1,8 @@
-<div class="navbar navbar-fixed">
-  <nav class="navbar-color gradient-shadow nav-collapsible gradient-45deg-light-blue-teal">
-    <button class="waves-effect waves-light cyan btn mr-1 ml-1" [routerLink]="['subjects']">SUBJECTS</button>
-    <button class="waves-effect waves-light cyan btn mr-1 ml-1" [routerLink]="['operators']">OPERATORS</button>
-  </nav>
-</div>
+<nav>
+  <div class="cyan darken-1 nav-wrapper">
+    <ul id="nav-mobile" class="left hide-on-med-and-down">
+      <li><a [routerLink]="['subjects']" >SUBJECT</a></li>
+      <li><a [routerLink]="['operators']" >OPERATORS</a></li>
+    </ul>
+  </div>
+</nav>
