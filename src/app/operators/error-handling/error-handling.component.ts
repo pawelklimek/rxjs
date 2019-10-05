@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {of} from 'rxjs';
 import {OperatorsService} from '../operators.service';
 import {catchError, map, retry} from 'rxjs/operators';
@@ -8,35 +8,24 @@ import {catchError, map, retry} from 'rxjs/operators';
   templateUrl: './error-handling.component.html',
   styleUrls: ['./error-handling.component.css']
 })
-export class ErrorHandlingComponent implements OnInit {
+export class ErrorHandlingComponent {
 
-  catchError$ = this.operatorsService.getAlphabet().pipe(
+  alphabet$ = this.operatorsService.getAlphabet();
+  alphabetAll$ = this.alphabet$.pipe(OperatorsService.showAllEmittedValues());
+
+  catchError$ = this.alphabet$.pipe(
     map(letter => {
-        if (letter === 'D') {
-          throw 'D';
-        }
-        return letter;
-      }
-    ),
+        if (letter === 'D') {throw 'D';}return letter}),
     catchError(() => of('Error D was there!')),
     OperatorsService.showAllEmittedValues());
 
-  retry$ = this.operatorsService.getAlphabet().pipe(
+  retry$ = this.alphabet$.pipe(
     map(letter => {
-        if (letter === 'D') {
-          throw 'D';
-        }
-        return letter;
-      }
-    ),
+        if (letter === 'D') {throw 'D';}return letter}),
     retry(2),
     catchError(() => of('Error D was there!')),
     OperatorsService.showAllEmittedValues());
 
   constructor(private operatorsService: OperatorsService) {
   }
-
-  ngOnInit() {
-  }
-
 }

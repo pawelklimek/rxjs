@@ -1,17 +1,57 @@
-<h2><b>Current emitted values: {{evenNumbers$ | async}} all emitted value {{evenNumbersAll$ | async}} </b></h2>
-<h2>
-  <b>tap(even => console.log('tap:', even * 3))</b> = {{ tap$ | async }}
-</h2>
-<h2>
-  <b>delay(2000)</b> = {{ delay$ | async }}
-</h2>
-<h2>
-  <b>timeStamp()</b> = {{ timeStamp$ | async }}
-</h2>
+<div class="center">
+  <h5 class="font-weight-100 center">Utility</h5>
+</div>
+<div class="center-flex">
+  <table class="width-40">
+    <thead>
+    <tr>
+      <th>Observable</th>
+      <th>Last value</th>
+      <th>All values</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><b>evenNumbers$</b></td>
+      <td>{{evenNumbers$| async}}</td>
+      <td>{{evenNumbersAll$ | async}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
 
-<h2>
-  <b>timeOut(1000)</b> = {{ timeOut$ | async }}
-</h2>
-<h2>
-  <b>toArray()</b> = {{ toArray$ | async }}
-</h2>
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Example</th>
+    <th>All results</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><b>Tap()</b></td>
+    <td>tap(even => console.log('tap:', even * 3))</td>
+    <td>{{tap$ | async}} + check console</td>
+  </tr>
+  <tr>
+    <td><b>Delay()</b></td>
+    <td>delay(2sec)</td>
+    <td>{{delay$ | async}}</td>
+  </tr>
+  <tr>
+    <td><b>TimeStamp()</b></td>
+    <td>timeStamp(), map(date => date.timestamp)p</td>
+    <td>{{timeStamp$ | async}}</td>
+  </tr>
+  <tr>
+    <td><b>TimeOut()</b></td>
+    <td>timeOut(1sec)</td>
+    <td>{{timeOut$ | async}} check console</td>
+  </tr>
+  <tr>
+    <td><b>ToArray()</b></td>
+    <td>toArray()</td>
+    <td>{{toArray$ | async}}</td>
+  </tr>
+</table>

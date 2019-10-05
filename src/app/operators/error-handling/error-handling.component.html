@@ -1,7 +1,51 @@
-<h2>
-  <b>catchError()</b> = {{ catchError$ | async }}
-</h2>
-<h2>
-  <b>retry(2)</b> = {{ retry$ | async }}
-</h2>
+<div class="center">
+  <h5 class="font-weight-100 center">Error Handling</h5>
+</div>
+<div class="center-flex">
+  <table class="width-60">
+    <thead>
+    <tr>
+      <th>Observable</th>
+      <th>Last value</th>
+      <th>All values</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><b>alphabet$</b></td>
+      <td>{{alphabet$ | async}}</td>
+      <td>{{alphabetAll$ | async}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
 
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Example</th>
+    <th>All results</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><b>CatchError()</b></td>
+    <td>this.alphabet$.pipe(<br>
+      map(letter => if(letter === 'D') <br>
+      {{"{"}}throw 'D'{{"}"}};return letter),<br>
+      catchError(() => of('Error D was there!'))</td>
+    <td>{{catchError$ | async}}</td>
+  </tr>
+  <tr>
+    <td><b>Retry()</b></td>
+    <td>this.alphabet$.pipe(<br>
+      map(letter => if(letter === 'D') <br>
+      {{"{"}}throw 'D'{{"}"}};return letter),<br>
+      retry(2),<br>
+      catchError(() => of('Error D was there!'))<br>
+    </td>
+    <td>{{retry$ | async}}</td>
+  </tr>
+  </tbody>
+</table>

@@ -35,48 +35,53 @@
   </thead>
   <tbody>
   <tr>
-    <td><b>buffer()</b></td>
+    <td><b>Buffer()</b></td>
     <td>interval(1sec)<br>.pipe(buffer(buttonEvent$)</td>
     <td>{{buffer$ | async}}</td>
   </tr>
   <tr>
-    <td><b>bufferCount()</b></td>
+    <td><b>BufferCount()</b></td>
     <td>interval(1sec).pipe(bufferCount(4))</td>
     <td>{{bufferCount$ | async}}</td>
   </tr>
   <tr>
-    <td><b>bufferTime()</b></td>
+    <td><b>BufferTime()</b></td>
     <td>interval(1sec).pipe(bufferTime(3sec))</td>
     <td>{{bufferTime$ | async}}</td>
   </tr>
   <tr>
-    <td><b>map()</b></td>
+    <td><b>Map()</b></td>
     <td>map(odd => odd * 2)</td>
     <td>{{map$ | async}}</td>
   </tr>
   <tr>
-    <td><b>mergeMap()</b></td>
+    <td><b>MapTo()</b></td>
+    <td>mapTo('A')</td>
+    <td>{{mapTo$ | async}}</td>
+  </tr>
+  <tr>
+    <td><b>MergeMap()</b></td>
     <td>mergeMap(odd + even)</td>
     <td>{{mergeMap$ | async}}</td>
   </tr>
   <tr>
-    <td><b>switchMap()</b></td>
+    <td><b>SwitchMap()</b></td>
     <td>buttonEvent$.pipe(switchMap(<br>
       () => return this.oddNumber$)))
     </td>
     <td>{{switchMap$ | async}}</td>
   </tr>
   <tr>
-    <td><b>scan()</b></td>
+    <td><b>Scan()</b></td>
     <td>scan((acc, value) => [...acc, value], []))</td>
     <td>{{scanListEmittedValues$ | async}}</td>
   </tr>
   <tr>
-    <td><b>pluck()</b></td>
+    <td><b>Pluck()</b></td>
     <td>
       pluck("number")<br>
       from numbers of({{"{"}}number:1{{'}'}}, {{'{'}}number: 2{{'}'}}, {{'{'}}number: 3{{'}'}})
     </td>
-    <td>{{scanListEmittedValues$ | async}}</td>
+    <td>{{pluck$ | async}}</td>
   </tr>
 </table>

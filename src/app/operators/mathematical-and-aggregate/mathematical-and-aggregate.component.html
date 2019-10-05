@@ -1,23 +1,63 @@
-<h2>
-<b>Mathematical and Aggregate Operators</b>
-</h2>
-<h2>
-  <b>Current value:</b> {{subject$ | async }} <b>Already emitted values:</b> {{scanListEmittedValues$ | async }}
-</h2>
-<h2>
-<b>COUNT():</b> {{count$ | async }}
-</h2>
-<h2>
-<b>MAX():</b> {{max$ | async }}
-</h2>
-<h2>
-<b>MIN():</b> {{min$ | async }}
-</h2>
-<h2>
-<b>REDUCE()</b> all value as list: {{reduceList$ | async }}
-</h2>
-<h5>reduce((acc, value) => [...acc, value], []))</h5>
-<h2>
-<b>REDUCE()</b> sum all value: {{reduceSum$ | async }}
-</h2>
-<h5> reduce((acc, value) => acc + value, 0))</h5>
+<div class="center">
+  <h5 class="font-weight-100 center">Mathematical and Aggregate</h5>
+</div>
+<div class="center-flex">
+  <table class="width-60">
+    <thead>
+    <tr>
+      <th>Observable</th>
+      <th>Last value</th>
+      <th>All values</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><b>oddNumbers$</b></td>
+      <td>{{oddNumbers$ | async}}</td>
+      <td>{{oddNumbersAll$ | async}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Example</th>
+    <th>All results</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><b>Count()</b></td>
+    <td>count()</td>
+    <td>{{count$ | async}}</td>
+  </tr>
+  <tr>
+    <td><b>Max()</b></td>
+    <td>max()</td>
+    <td>{{max$ | async}}</td>
+  </tr>
+  <tr>
+    <td><b>Min()</b></td>
+    <td>min()</td>
+    <td>{{min$ | async}}</td>
+  </tr>
+  <tr>
+    <td><b>Reduce()</b></td>
+    <td>reduce((acc, value) => acc + value, 0))</td>
+    <td>{{reduceSum$ | async}}</td>
+  </tr>
+  <tr>
+    <td><b>Reduce()</b></td>
+    <td>reduce((acc, value) => [...acc, value], []))</td>
+    <td>{{reduceList$ | async}}</td>
+  </tr>
+  <tr>
+    <td><b>Scan()</b></td>
+    <td>scan((acc, value) => [...acc, value], []))</td>
+    <td>{{oddNumbersAll$ | async}}</td>
+  </tr>
+  </tbody>
+</table>

@@ -1702,10 +1702,10 @@ $jscomp.polyfill = function (e, r, p, m) {
             n = h.length - 1,
             l = h[n];n && (l = r(h, function (b) {
           return a < b.end;
-        })[0] || l);for (var h = Math.min(Math.max(a - l.start - l.delay, 0), l.duration) / l.duration, w = isNaN(h) ? 1 : l.easing(h, l.elasticity), h = l.to.strings, p = l.round, n = [], m = void 0, m = l.to.numbers.length, t = 0; t < m; t++) {
+        })[0] || l);for (var h = Math.min(Math.max(a - l.start - l.delay, 0), l.duration) / l.duration, w = isNaN(h) ? 1 : l.easing(h, l.elasticity), h = l.to.strings, p = l.round, n = [], m = void 0, m = l.to.numbers$.length, t = 0; t < m; t++) {
           var x = void 0,
-              x = l.to.numbers[t],
-              q = l.from.numbers[t],
+              x = l.to.numbers$[t],
+              q = l.from.numbers$[t],
               x = l.isPath ? Y(l.value, w * x) : q + w * (x - q);p && (l.isColor && 2 < t || (x = Math.round(x * p) / p));n.push(x);
         }if (l = h.length) for (m = h[0], w = 0; w < l; w++) {
           p = h[w + 1], t = n[w], isNaN(t) || (m = p ? m + (t + p) : m + (t + " "));

@@ -10,11 +10,11 @@ import {OperatorsService} from '../operators.service';
 export class UtilityComponent {
   evenNumbers$ = this.operatorsService.getEvenNumbers();
   evenNumbersAll$ = this.operatorsService.getEvenNumbers().pipe(OperatorsService.showAllEmittedValues());
-  tap$ = this.operatorsService.getEvenNumbers().pipe(tap(even => console.log('tap:', even * 3)), OperatorsService.showAllEmittedValues());
-  delay$ = this.operatorsService.getEvenNumbers().pipe(delay(2000), OperatorsService.showAllEmittedValues());
-  timeStamp$ = this.operatorsService.getEvenNumbers().pipe(timestamp(), map(date => date.timestamp), OperatorsService.showAllEmittedValues());
-  timeOut$ = this.operatorsService.getEvenNumbers().pipe(timeout(1000));
-  toArray$ = this.operatorsService.getEvenNumbers().pipe(toArray());
+  tap$ = this.evenNumbers$.pipe(tap(even => console.log('tap:', even * 3)), OperatorsService.showAllEmittedValues());
+  delay$ = this.evenNumbers$.pipe(delay(2000), OperatorsService.showAllEmittedValues());
+  timeStamp$ = this.evenNumbers$.pipe(timestamp(), map(date => date.timestamp), OperatorsService.showAllEmittedValues());
+  timeOut$ = this.evenNumbers$.pipe(timeout(1000));
+  toArray$ = this.evenNumbers$.pipe(toArray());
 
   constructor(private operatorsService: OperatorsService) {
   }

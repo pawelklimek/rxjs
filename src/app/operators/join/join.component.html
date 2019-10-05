@@ -1,16 +1,65 @@
-<button class="btn btn-outline-success p-3 m-3 emit-button-join">EMIT VALUE</button>
-<h2>
-  <b>exhaust()</b> {{ exhaust$ | async }}
-</h2>
-<h2>
-  <b>concatAll()</b> {{ concatAll$ | async }}
-</h2>
-<h2>
-  <b>mergeAll()</b> {{ mergeAll$ | async }}
-</h2>
-<h2>
-  <b>startWith()</b> {{ startWith$ | async }}
-</h2>
-<h2>
-  <b>withLatestFrom()</b> {{ withLatestFrom$ | async }}
-</h2>
+<div class="center">
+  <h5 class="font-weight-100 center">Filter</h5>
+  <button class="btn btn-outline-success p-3 m-3 emit-button-join">EMIT VALUE</button>
+  <h6 class="font-weight-100 center">emitLettersAfterClick$ = buttonEvent$.pipe(map(() => this.alphabet$))</h6>
+</div>
+<div class="center-flex">
+  <table class="width-60">
+    <thead>
+    <tr>
+      <th>Observable</th>
+      <th>Last value</th>
+      <th>All values</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><b>alphabet$</b></td>
+      <td>{{alphabet$ | async}}</td>
+      <td>{{alphabetAll$ | async}}</td>
+    </tr>
+    <tr>
+      <td><b>oddNumbers$</b></td>
+      <td>{{oddNumbers$ | async}}</td>
+      <td>{{oddNumbersAll$ | async}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Example</th>
+    <th>All results</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><b>Exhaust()</b></td>
+    <td>emitLettersAfterClick$.pipe(exhaust()))</td>
+    <td>{{exhaust$ | async}}</td>
+  </tr>
+  <tr>
+    <td><b>ConcatAll()</b></td>
+    <td>emitLettersAfterClick$.pipe(concatAll())</td>
+    <td>{{concatAll$ | async}}</td>
+  </tr>
+  <tr>
+    <td><b>MergeAll()</b></td>
+    <td>emitLettersAfterClick$.pipe(mergeAll())</td>
+    <td>{{mergeAll$ | async}}</td>
+  </tr>
+  <tr>
+    <td><b>StartWith()</b></td>
+    <td>alphabet$.pipe(startWith('X')</td>
+    <td>{{startWith$ | async}}</td>
+  </tr>
+  <tr>
+    <td><b>WithLatestFrom()</b></td>
+    <td>alphabet$.pipe(withLatestFrom(oddNumbers$)</td>
+    <td>{{withLatestFrom$ | async}}</td>
+  </tr>
+  </tbody>
+</table>

@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {fromEvent, Observable} from 'rxjs';
-import {combineAll, concatAll, exhaust, map, mergeAll, startWith, withLatestFrom} from 'rxjs/operators';
+import {concatAll, exhaust, map, mergeAll, startWith, withLatestFrom} from 'rxjs/operators';
 import {OperatorsService} from '../operators.service';
 
 @Component({
@@ -11,12 +11,17 @@ import {OperatorsService} from '../operators.service';
 export class JoinComponent implements OnInit {
 
 
+  alphabet$ = this.operatorsService.getAlphabet();
+  oddNumbers$ = this.operatorsService.getOddNumbers();
+  oddNumbersAll$ = this.oddNumbers$.pipe(OperatorsService.showAllEmittedValues());
+
+  alphabetAll$ = this.alphabet$.pipe(OperatorsService.showAllEmittedValues());
   exhaust$ = new Observable<any>();
   mergeAll$ = new Observable<any>();
-  combineAll$ = new Observable<any>();
   concatAll$ = new Observable<any>();
   startWith$ = new Observable<any>();
   withLatestFrom$ = new Observable<any>();
+  emitLettersAfterClick$ = new Observable<any>();
 
 
   constructor(private operatorsService: OperatorsService) {
@@ -26,12 +31,13 @@ export class JoinComponent implements OnInit {
     let button = document.querySelector('.emit-button-join');
     let buttonEvent$ = fromEvent(button, 'click');
 
-    const emitLetterAfterClick = buttonEvent$.pipe(map(() => this.operatorsService.getAlphabet()));
-    this.exhaust$ = emitLetterAfterClick.pipe(exhaust(), OperatorsService.showAllEmittedValues());
-    this.concatAll$ = emitLetterAfterClick.pipe(concatAll(), OperatorsService.showAllEmittedValues());
-    this.mergeAll$ = emitLetterAfterClick.pipe(mergeAll(), OperatorsService.showAllEmittedValues());
-    this.startWith$ = this.operatorsService.getAlphabet().pipe(startWith('X'), OperatorsService.showAllEmittedValues());
-    this.withLatestFrom$ = this.operatorsService.getAlphabet().pipe(withLatestFrom(this.operatorsService.getOddNumbers()),OperatorsService.showAllEmittedValues());
+    this.emitLettersAfterClick$ = buttonEvent$.pipe(map(() => this.alphabet$));
+
+    this.exhaust$ = this.emitLettersAfterClick$.pipe(exhaust(), OperatorsService.showAllEmittedValues());
+    this.concatAll$ = this.emitLettersAfterClick$.pipe(concatAll(), OperatorsService.showAllEmittedValues());
+    this.mergeAll$ = this.emitLettersAfterClick$.pipe(mergeAll(), OperatorsService.showAllEmittedValues());
+    this.startWith$ = this.alphabet$.pipe(startWith('X'), OperatorsService.showAllEmittedValues());
+    this.withLatestFrom$ = this.alphabet$.pipe(withLatestFrom(this.oddNumbers$), OperatorsService.showAllEmittedValues());
 
 
   }

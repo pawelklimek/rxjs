@@ -1,19 +1,56 @@
-<h2>
-  <b> EMITTED VALUES of(1, 2, 3, 4, 5, 6).pipe(...)</b>
-</h2>
+<div class="center">
+  <h5 class="font-weight-100 center">Conditional</h5>
+</div>
+<div class="center-flex">
+  <table class="width-60">
+    <thead>
+    <tr>
+      <th>Observable</th>
+      <th>All values</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><b>numbers$</b></td>
+      <td>{{numbersAll$ | async}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
 
-<h2>
-  <b>every(value => value > 5)</b> = {{ everyGreaterThanFive$ | async }}
-</h2>
-<h2>
-  <b>every(value => value =< 1)</b> = {{ everyGreaterOrEqualOne$ | async }}
-</h2>
-<h2>
-  <b>find(value => value > 4)</b> = {{ findGreaterThanFour$ | async }}
-</h2>
-<h2>
-  <b>findIndex(value => value % 2 === 0)</b> = {{ findEvenNumber$ | async }}
-</h2>
-<h2>
-  <b>of().pipe(isEmpty())</b> = {{ isEmpty$ | async }}
-</h2>
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Example</th>
+    <th>All results</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><b>Every()</b></td>
+    <td>every(value => value > 5)</td>
+    <td>{{everyGreaterThanFive$ | async}}</td>
+  </tr>
+  <tr>
+    <td><b>Every()</b></td>
+    <td>every(value => value <= 1)</td>
+    <td>{{everyGreaterOrEqualOne$ | async}}</td>
+  </tr>
+  <tr>
+    <td><b>Find()</b></td>
+    <td>find(value => value >= 4)</td>
+    <td>{{findGreaterThanFour$ | async}}</td>
+  </tr>
+  <tr>
+    <td><b>FindIndex()</b></td>
+    <td>findIndex(value => value % 2 === 0)</td>
+    <td>{{findEvenNumber$ | async}}</td>
+  </tr>
+  <tr>
+    <td><b>IsEmpty()</b></td>
+    <td>of().pipe(isEmpty())</td>
+    <td>{{isEmpty$ | async}}</td>
+  </tr>
+  </tbody>
+</table>
