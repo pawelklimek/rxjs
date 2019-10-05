@@ -1,17 +1,59 @@
-
-<h2><b>Static and not pipeline operators</b></h2>
-<h2><b>of(1, 2, 3) =</b> {{of$ | async }}</h2>
-<h2><b>range(0, 5) =</b> {{range$ | async }}</h2>
-<h2><b>from([1, 2, 3])=</b> {{from$ | async }}</h2>
-<h2><b>generate$ = generate({{'{'}}
-  initialState: 0,
-  condition: x => x < 10,
-  iterate: x => x + 1
- {{'}'}} = </b> {{generate$ | async }}</h2>
-<h2><b>interval(2sec)=</b> {{interval$ | async }}</h2>
-<h2><b>timer(4sec, 2sec)=</b> {{timer$ | async }}</h2>
-
-<button class="btn btn-outline-success p-3 m-3 emit-button">EMIT VALUE</button>
-<h2><b>fromEvent(button, 'click').pipe(map(button => button.timeStamp))=</b> {{fromEvent$ | async }}</h2>
-<h2><b>throwError(new Error("Oops! ERROR!"))</b> {{throwError$ | async }}</h2>
-
+<div class="center">
+  <h5 class="font-weight-100 center">Creation</h5>
+  <button class="btn btn-outline-success p-3 m-3 emit-button center">EMIT VALUE</button>
+</div>
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Example</th>
+    <th>Result</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Of</td>
+    <td>of(1, 2, 3)</td>
+    <td>{{of$ | async}}</td>
+  </tr>
+  <tr>
+    <td>Range()</td>
+    <td>range(0, 5)</td>
+    <td>{{range$ | async}}</td>
+  </tr>
+  <tr>
+    <td>From()</td>
+    <td>from([1, 2, 3])</td>
+    <td>{{from$ | async}}</td>
+  </tr>
+  <tr>
+    <td>Generate()</td>
+    <td>generate({{'{'}}
+      initialState: 0,<br>
+      condition: x => x < 10, <br>
+      iterate: x => x + 2
+      {{'}'}}</td>
+    <td>{{generate$ | async}}</td>
+  </tr>
+  <tr>
+    <td>Interval()</td>
+    <td>interval(5sec)</td>
+    <td>{{interval$ | async}}</td>
+  </tr>
+  <tr>
+    <td>Timer()</td>
+    <td>interval(10sec, 2sec)</td>
+    <td>{{timer$ | async}}</td>
+  </tr>
+  <tr>
+    <td>FromEvent()</td>
+    <td>fromEvent(button, 'click')<br>.pipe(map(button => button.timeStamp))</td>
+    <td>{{fromEvent$ | async}}</td>
+  </tr>
+  <tr>
+    <td>throwError()</td>
+    <td>throwError(new Error("Oops! ERROR!"))</td>
+    <td>Check the console{{throwError$ | async}}</td>
+  </tr>
+  </tbody>
+</table>

@@ -19,12 +19,12 @@ export class CreationComponent implements OnInit{
   generate$ = generate({
     initialState: 0,
     condition: x => x < 10,
-    iterate: x => x + 1
+    iterate: x => x + 2
   }).pipe(OperatorsService.showAllEmittedValues());
 
   from$ = from([1, 2, 3]).pipe(OperatorsService.showAllEmittedValues());
-  interval$ = interval(2000).pipe(OperatorsService.showAllEmittedValues());
-  timer$ = timer(4000, 2000).pipe(OperatorsService.showAllEmittedValues());
+  interval$ = interval(5000).pipe(OperatorsService.showAllEmittedValues());
+  timer$ = timer(10000, 2000).pipe(OperatorsService.showAllEmittedValues());
   throwError$ = throwError(new Error("Oops! ERROR!"));
 
   ngOnInit(): void {
