@@ -1,44 +1,82 @@
-<button class="emit-button"></button>
-
-<h2><b>EMITTED VALUES</b></h2>
-<h2><b>current odd number = {{ oddNumber$ | async}} all emitted values: {{oddNumberAll$ | async}} </b></h2>
-<h2><b>current even number = {{ evenNumber$ | async}} all emitted values: {{evenNumberAll$ | async}} </b></h2>
-
-<button class="btn btn-outline-success p-3 m-3 emit-button-tr">EMIT VALUE</button>
-<h2>
- <b>buffer()</b>
-</h2>
-<h2>
-  <b>interval(1sec).pipe(buffer(buttonEvent$)):</b> {{ buffer$ | async }}
-</h2>
-<h2>
-  <b>bufferCount()</b>
-</h2>
-<h2>
-  <b>interval(1sec).pipe(bufferCount(4))</b> {{ bufferCount$ | async }}
-</h2>
-<h2>
-  <b>bufferTime()</b>
-</h2>
-<h2>
-  <b>interval(1sec).pipe(bufferTime(3sec))</b> {{ bufferTime$ | async }}
-</h2>
-<h2>
-  <b>map(odd => odd * 2)</b> = {{ map$ | async }}
-</h2>
-<h2>
-  <b>mapTo("A")</b> = {{ mapTo$ | async }}
-</h2>
-<h2>
-  <b>mergeMap(odd + even)</b> = {{ mergeMap$ | async }}
-</h2>
-<h2>
-  <b>switchMap()</b> = {{ switchMap$ | async }}
-</h2>
-<h2><b>scan()</b> Already Emitted Values: {{scanListEmittedValues$ | async }}
-  <h5>scan((acc, value) => [...acc, value], []))</h5>
-</h2>
-<h2>
-  <b>pluck("number")</b> = {{ pluck$ | async }} <b>from numbers of({{"{"}}number:1{{'}'}}, {{'{'}}number: 2{{'}'}}
-  , {{'{'}}number: 3{{'}'}}) </b>
-</h2>
+<div class="center">
+  <h5 class="font-weight-100 center">Transformation</h5>
+  <button class="btn btn-outline-success p-3 m-3 emit-button-tr center">EMIT VALUE</button>
+</div>
+<div class="center-flex">
+  <table class="width-40">
+    <thead>
+    <tr>
+      <th>Observable</th>
+      <th>Last value</th>
+      <th>All values</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><b>oddNumber$</b></td>
+      <td>{{oddNumber$| async}}</td>
+      <td>{{oddNumberAll$ | async}}</td>
+    </tr>
+    <tr>
+      <td><b>evenNumber$</b></td>
+      <td>{{evenNumber$ | async}}</td>
+      <td>{{evenNumberAll$ | async}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Example</th>
+    <th>All results</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><b>buffer()</b></td>
+    <td>interval(1sec)<br>.pipe(buffer(buttonEvent$)</td>
+    <td>{{buffer$ | async}}</td>
+  </tr>
+  <tr>
+    <td><b>bufferCount()</b></td>
+    <td>interval(1sec).pipe(bufferCount(4))</td>
+    <td>{{bufferCount$ | async}}</td>
+  </tr>
+  <tr>
+    <td><b>bufferTime()</b></td>
+    <td>interval(1sec).pipe(bufferTime(3sec))</td>
+    <td>{{bufferTime$ | async}}</td>
+  </tr>
+  <tr>
+    <td><b>map()</b></td>
+    <td>map(odd => odd * 2)</td>
+    <td>{{map$ | async}}</td>
+  </tr>
+  <tr>
+    <td><b>mergeMap()</b></td>
+    <td>mergeMap(odd + even)</td>
+    <td>{{mergeMap$ | async}}</td>
+  </tr>
+  <tr>
+    <td><b>switchMap()</b></td>
+    <td>buttonEvent$.pipe(switchMap(<br>
+      () => return this.oddNumber$)))
+    </td>
+    <td>{{switchMap$ | async}}</td>
+  </tr>
+  <tr>
+    <td><b>scan()</b></td>
+    <td>scan((acc, value) => [...acc, value], []))</td>
+    <td>{{scanListEmittedValues$ | async}}</td>
+  </tr>
+  <tr>
+    <td><b>pluck()</b></td>
+    <td>
+      pluck("number")<br>
+      from numbers of({{"{"}}number:1{{'}'}}, {{'{'}}number: 2{{'}'}}, {{'{'}}number: 3{{'}'}})
+    </td>
+    <td>{{scanListEmittedValues$ | async}}</td>
+  </tr>
+</table>

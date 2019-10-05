@@ -24,6 +24,8 @@ export class FilteringComponent implements OnInit {
 
 
   alphabet$ = this.operatorService.getAlphabet();
+  alphabetAll$ = this.alphabet$.pipe(OperatorsService.showAllEmittedValues());
+
   auditTime$ = this.alphabet$.pipe(auditTime(2000));
   debounce$ = this.alphabet$.pipe(debounce(() => interval(3000)));
   debounceTime$ = this.alphabet$.pipe(debounceTime(3000));

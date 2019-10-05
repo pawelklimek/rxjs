@@ -1,43 +1,98 @@
-<h2>
-  <b>alphabet</b> = {{ alphabet$ | async }}
-</h2>
-<h2>
-  <b>auditTime(2100)</b> = {{ auditTime$ | async }}
-</h2>
-<h2>
-  <b>debounceTime(2100)</b> = {{ debounceTime$ | async }}
-</h2>
-<h2>
-  <b>of(1, 1, 2, 2, 2, 1, 1, 2, 3, 3, 4).pipe(distinct())</b> = {{ distinct$ | async }}
-</h2>
+<div class="center">
+  <h5 class="font-weight-100 center">Join Creation</h5>
+</div>
+<div class="center-flex">
+  <table class="width-60">
+    <thead>
+    <tr>
+      <th>Observable</th>
+      <th>Last value</th>
+      <th>All values</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><b>oddNumber$</b></td>
+      <td>{{alphabet$| async}}</td>
+      <td>{{alphabetAll$ | async}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
 
-<h2>
-  <b>of(1, 1, 2, 2, 2, 1, 1, 2, 3, 3, 4).pipe(distinctUntilChange())</b> = {{ distinctUntilChange$ | async }}
-</h2>
-<h2>
-  <b>of(1, 1, 2, 2, 2, 1, 1, 2, 3, 3, 4).pipe(filter( number => number % 2 === 0))</b> = {{ filter$ | async }}
-</h2>
-<h2>
-  <b>elementAt(3)</b> = {{ elementAt$ | async }}
-</h2>
-<h2>
-  <b>first()</b> = {{ first$ | async }}
-</h2>
-<h2>
-  <b>last()</b> = {{ last$ | async }}
-</h2>
-<h2>
-  <b>take(5)</b> = {{ take$ | async }}
-</h2>
-<h2>
-  <b>takeLast(2)</b> = {{ takeLast$ | async }}
-</h2>
-<h2>
-  <b>skip(5)</b> = {{ skip$ | async }}
-</h2>
-<h2>
-  <b>skipLast(2)</b> = {{ skipLast$ | async }}
-</h2>
-<h2>
-  <b>skipUntil(4sec)</b> = {{ skipUnitil$ | async }}
-</h2>
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Example</th>
+    <th>All results</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><b>AuditTime()</b></td>
+    <td>auditTime(2100)</td>
+    <td>{{auditTime$ | async}}</td>
+  </tr>
+  <tr>
+    <td><b>DebounceTime()</b></td>
+    <td>debounceTime(2100)</td>
+    <td>{{debounceTime$ | async}}</td>
+  </tr>
+  <tr>
+    <td><b>Distinct()</b></td>
+    <td>of(1, 1, 2, 2, 2, 1, 1, 2, 3, 3, 4)<br>.pipe(distinct())</td>
+    <td>{{distinct$ | async}}</td>
+  </tr>
+  <tr>
+    <td><b>DistinctUntilChange()</b></td>
+    <td>of(1, 1, 2, 2, 2, 1, 1, 2, 3, 3, 4)<br>.pipe(distinctUntilChange())</td>
+    <td>{{distinctUntilChange$ | async}}</td>
+  </tr>
+  <tr>
+    <td><b>Filter()</b></td>
+    <td>of(1, 1, 2, 2, 2, 1, 1, 2, 3, 3, 4)<br>.pipe(filter( number => number % 2 === 0))</td>
+    <td>{{filter$ | async}}</td>
+  </tr>
+  <tr>
+    <td><b>ElementAt()</b></td>
+    <td>elementAt(3)</td>
+    <td>{{elementAt$ | async}}</td>
+  </tr>
+  <tr>
+    <td><b>First()</b></td>
+    <td>first()</td>
+    <td>{{first$ | async}}</td>
+  </tr>
+  <tr>
+    <td><b>Last()</b></td>
+    <td>last()</td>
+    <td>{{last$ | async}}</td>
+  </tr>
+  <tr>
+    <td><b>take()</b></td>
+    <td>take(5)</td>
+    <td>{{take$ | async}}</td>
+  </tr>
+  <tr>
+    <td><b>takeLast()</b></td>
+    <td>takeLast(2)</td>
+    <td>{{takeLast$ | async}}</td>
+  </tr>
+  <tr>
+    <td><b>skip()</b></td>
+    <td>skip(5)</td>
+    <td>{{skip$ | async}}</td>
+  </tr>
+  <tr>
+    <td><b>skipLast()</b></td>
+    <td>skipLast(2)</td>
+    <td>{{skipLast$| async}}</td>
+  </tr>
+  <tr>
+    <td><b>skipUntil()</b></td>
+    <td>skipUntil(4sec)</td>
+    <td>{{skipUnitil$ | async}}</td>
+  </tr>
+  </tbody>
+</table>
