@@ -15,12 +15,23 @@ export class JoinCreationComponent {
   oddNumberAll$ = this.oddNumber$.pipe(OperatorsService.showAllEmittedValues());
   evenNumberAll$ = this.evenNumber$.pipe(OperatorsService.showAllEmittedValues());
 
-  combineLatestMultiplication$ = combineLatest(this.oddNumber$, this.evenNumber$).pipe(this.multiplication(), OperatorsService.showAllEmittedValues());
-  concat$ = concat(this.oddNumber$, this.evenNumber$).pipe(OperatorsService.showAllEmittedValues());
-  merge$ = merge(this.oddNumber$, this.evenNumber$).pipe(OperatorsService.showAllEmittedValues());
-  forkJoin$ = forkJoin(this.oddNumber$, this.evenNumber$).pipe(OperatorsService.showAllEmittedValues());
-  race$ = race(this.oddNumber$, this.evenNumber$).pipe(OperatorsService.showAllEmittedValues());
-  zip$ = zip(this.oddNumber$, this.evenNumber$).pipe(OperatorsService.showAllEmittedValues());
+  combineLatestMultiplication$ = combineLatest(this.oddNumber$, this.evenNumber$).pipe(this.multiplication());
+  combineLatestMultiplicationAll$ = this.combineLatestMultiplication$.pipe(OperatorsService.showAllEmittedValues());
+
+  concat$ = concat(this.oddNumber$, this.evenNumber$);
+  concatAll$ = this.concat$.pipe(OperatorsService.showAllEmittedValues());
+
+  merge$ = merge(this.oddNumber$, this.evenNumber$);
+  mergeAll$ = this.merge$.pipe(OperatorsService.showAllEmittedValues());
+
+  forkJoin$ = forkJoin(this.oddNumber$, this.evenNumber$);
+  forkJoinAll$ = this.forkJoin$.pipe(OperatorsService.showAllEmittedValues());
+
+  race$ = race(this.oddNumber$, this.evenNumber$);
+  raceAll$ = this.race$.pipe(OperatorsService.showAllEmittedValues());
+
+  zip$ = zip(this.oddNumber$, this.evenNumber$);
+  zipAll$ = this.zip$.pipe(OperatorsService.showAllEmittedValues());
 
   constructor(private operatorsService: OperatorsService) {
   }

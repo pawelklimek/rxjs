@@ -12,22 +12,22 @@
   </thead>
   <tbody>
   <tr>
-    <td>Of</td>
+    <td><b>Of()</b></td>
     <td>of(1, 2, 3)</td>
     <td>{{of$ | async}}</td>
   </tr>
   <tr>
-    <td>Range()</td>
+    <td><b>Range()</b></td>
     <td>range(0, 5)</td>
     <td>{{range$ | async}}</td>
   </tr>
   <tr>
-    <td>From()</td>
+    <td><b>From()</b></td>
     <td>from([1, 2, 3])</td>
     <td>{{from$ | async}}</td>
   </tr>
   <tr>
-    <td>Generate()</td>
+    <td><b>Generate()</b></td>
     <td>generate({{'{'}}
       initialState: 0,<br>
       condition: x => x < 10, <br>
@@ -36,22 +36,22 @@
     <td>{{generate$ | async}}</td>
   </tr>
   <tr>
-    <td>Interval()</td>
+    <td><b>Interval()</b></td>
     <td>interval(5sec)</td>
     <td>{{interval$ | async}}</td>
   </tr>
   <tr>
-    <td>Timer()</td>
+    <td><b>Timer()</b></td>
     <td>interval(10sec, 2sec)</td>
     <td>{{timer$ | async}}</td>
   </tr>
   <tr>
-    <td>FromEvent()</td>
+    <td><b>FromEvent()</b></td>
     <td>fromEvent(button, 'click')<br>.pipe(map(button => button.timeStamp))</td>
     <td>{{fromEvent$ | async}}</td>
   </tr>
   <tr>
-    <td>throwError()</td>
+    <td><b>throwError()</b></td>
     <td>throwError(new Error("Oops! ERROR!"))</td>
     <td>Check the console{{throwError$ | async}}</td>
   </tr>

@@ -1,23 +1,82 @@
-<h2><b>EMITTED VALUES</b></h2>
-<h2><b>current oddNumber = {{ oddNumber$ | async}} all emitted values: {{oddNumberAll$ | async}} </b></h2>
-<h2><b>current evenNumber = {{ evenNumber$ | async}} all emitted values: {{evenNumberAll$ | async}} </b></h2>
-<h2>
-  <b>combineLatest(this.oddNumber, this.evenNumber)<br>
-    .pipe(this.multiplication(), ...)</b>
-  <b></b> = {{ combineLatestMultiplication$ | async }}
-</h2>
-<h2>
-  <b>concat()</b>= {{ concat$ | async }}
-</h2>
-<h2>
-  <b>merge()</b> = {{ merge$ | async }}
-</h2>
-<h2>
-  <b>forkJoin()</b> = {{ forkJoin$ | async }}
-</h2>
-<h2>
-  <b>race()</b> = {{ race$ | async }}
-</h2>
-<h2>
-  <b>zip()</b> = {{ zip$ | async }}
-</h2>
+<div class="center">
+  <h5 class="font-weight-100 center">Join Creation</h5>
+</div>
+<div class="center-flex">
+  <table class="width-40">
+    <thead>
+    <tr>
+      <th>Observable</th>
+      <th>Last value</th>
+      <th>All values</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><b>oddNumber$</b></td>
+      <td>{{oddNumber$| async}}</td>
+      <td>{{oddNumberAll$ | async}}</td>
+    </tr>
+    <tr>
+      <td><b>evenNumber$</b></td>
+      <td>{{evenNumber$ | async}}</td>
+      <td>{{evenNumberAll$ | async}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Example</th>
+    <th>Result</th>
+    <th>All results</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><b>combineLatest()</b></td>
+    <td>combineLatest
+      <br>(oddNumber$, evenNumber$)<br>
+      .pipe(this.multiplication(), ...)</td>
+    <td>{{combineLatestMultiplication$ | async}}</td>
+    <td>{{combineLatestMultiplicationAll$ | async}}</td>
+
+  </tr>
+  <tr>
+    <td><b>Concat()</b></td>
+    <td>concat(oddNumber$, evenNumber$)</td>
+    <td>{{concat$ | async}}</td>
+    <td>{{concatAll$ | async}}</td>
+
+  </tr>
+  <tr>
+    <td><b>Merge()</b></td>
+    <td>merge(oddNumber$, evenNumber$)</td>
+    <td>{{merge$ | async}}</td>
+    <td>{{mergeAll$ | async}}</td>
+
+  </tr>
+  <tr>
+    <td><b>ForkJoin()</b></td>
+    <td>forkJoin(oddNumber$, evenNumber$)</td>
+    <td>{{forkJoin$ | async}}</td>
+    <td>{{forkJoinAll$ | async}}</td>
+
+  </tr>
+  <tr>
+    <td><b>Race()</b></td>
+    <td>race(oddNumber$, evenNumber$)</td>
+    <td>{{race$ | async}}</td>
+    <td>{{raceAll$ | async}}</td>
+
+  </tr>
+  <tr>
+    <td><b>Zip()</b></td>
+    <td>zip(oddNumber$, evenNumber$)</td>
+    <td>{{zip$ | async}}</td>
+    <td>{{zipAll$ | async}}</td>
+
+  </tr>
+</table>
