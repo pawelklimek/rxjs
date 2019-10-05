@@ -1,34 +1,6 @@
-<app-operators-menu></app-operators-menu>
-<router-outlet></router-outlet>
-<!--<h2>-->
-  <!--<b>Mathematical and Aggregate Operators</b>-->
-<!--</h2>-->
-<!--<h2>-->
-  <!--<b>Current Value:</b> {{subject$ | async }}-->
-<!--</h2>-->
-<!--<h2>-->
-  <!--<b>SCAN()</b> Already Emitted Values: {{scanListEmittedValues$ | async }}-->
-  <!--<h5>scan((acc, value) => [...acc, value], []))</h5>-->
-<!--</h2>-->
-<!--<h2>-->
-  <!--<b>COUNT():</b> {{count$ | async }}-->
-<!--</h2>-->
-<!--<h2>-->
-  <!--<b>MAX():</b> {{max$ | async }}-->
-<!--</h2>-->
-<!--<h2>-->
-  <!--<b>MIN():</b> {{min$ | async }}-->
-<!--</h2>-->
-<!--<h2>-->
-  <!--<b>REDUCE()</b> all value as list: {{reduceList$ | async }}-->
-<!--</h2>-->
-<!--<h5>reduce((acc, value) => [...acc, value], []))</h5>-->
-<!--<h2>-->
-  <!--REDUCE() sum all value: {{reduceSum$ | async }}-->
-<!--</h2>-->
-<!--<h5> reduce((acc, value) => acc + value, 0))</h5>-->
+<div class="container-operators">
+  <app-operators-menu class="container-buttons"></app-operators-menu>
+  <router-outlet class="container-content"></router-outlet>
+</div>
 
-<!--<h2>OF(): {{of$ | async }}</h2>-->
-<!--<h2>RANGE(): {{range$ | async }}</h2>-->
-<!--<h2>FROM(): {{from$ | async }}</h2>-->
-<!--<h2>GENERATE(): {{generate$ | async }}</h2>-->
+

@@ -1,7 +1,18 @@
-h2 {
-  font-weight: 100;
-  font-size: 35px;
+.container-operators {
+  height: 100vh;
+  display: flex;
 }
-h5 {
-  font-weight: 100;
+
+.container-buttons {
+  display: flex;
+  flex-direction: column;
+  flex: 3;
 }
+
+.container-content {
+  display: flex;
+  flex-direction: column;
+  flex: 9;
+}
+
+
